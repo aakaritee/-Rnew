@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+	   <title>Add 2 Numbers</title>
+	   <link rel="stylesheet" href="css/custom2.css">
+
+		   <script>
+
+
+			   function addTwo(num1, num2) {
+				   if (isNaN(num1) || isNaN(num2)) {
+					   document.getElementById("answer").innerHTML = "Please enter valid numbers.";
+					   return;
+				   }
+				   var total = num1 + num2;
+				   document.getElementById("answer").innerHTML = "The sum is " + total;
+			   }
+
+			   function subtractTwo(num1, num2) {
+				   if (isNaN(num1) || isNaN(num2)) {
+					   document.getElementById("answer").innerHTML = "Please enter valid numbers.";
+					   return;
+				   }
+				   var total = num1 - num2;
+				   document.getElementById("answer").innerHTML = "The difference is " + total;
+			   }
+
+			   function multiplyTwo(num1, num2) {
+				   if (isNaN(num1) || isNaN(num2)) {
+					   document.getElementById("answer").innerHTML = "Please enter valid numbers.";
+					   return;
+				   }
+				   var total = num1 * num2;
+				   document.getElementById("answer").innerHTML = "The product is " + total;
+			   }
+
+			   function divideTwo(num1, num2) {
+				   if (isNaN(num1) || isNaN(num2)) {
+					   document.getElementById("answer").innerHTML = "Please enter valid numbers.";
+					   return;
+				   }
+				   if (num2 === 0) {
+					   document.getElementById("answer").innerHTML = "Cannot divide by zero.";
+				   } else {
+					   var total = num1 / num2;
+					   document.getElementById("answer").innerHTML = "The quotient is " + total;
+				   }
+			   }
+
+			</script>
+
+	</head>
+
+	<body >
+
+		 <input type = "text"  id = "FirstNum" size="20"/><br/>
+		 <input type = "text"  id = "SecondNum" size="20"/><br/>
+
+
+	 <button type="button" onclick="addTwo(Number(FirstNum.value), Number(SecondNum.value))">Add</button>
+	 <button type="button" onclick="subtractTwo(Number(FirstNum.value), Number(SecondNum.value))">Subtract</button>
+	 <button type="button" onclick="multiplyTwo(Number(FirstNum.value), Number(SecondNum.value))">Multiply</button>
+	 <button type="button" onclick="divideTwo(Number(FirstNum.value), Number(SecondNum.value))">Divide</button>
+	 <br/>
+	 <span id="answer"></span>
+
+
+	</body>
+</html>
