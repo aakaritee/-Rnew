@@ -1421,3 +1421,14 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+.card:hover {
+  background-color: #20c997;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover .card-title {
+  color: #fff;
+}
