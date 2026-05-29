@@ -5,17 +5,11 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Akriti Karki</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Database Administrator transitioning into data-focused roles">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,23 +21,254 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Kelly
-  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #20c997;
+      --accent-light: #d0f5ec;
+      --bg: #fafaf9;
+      --text: #1a1a18;
+      --muted: #7a7a72;
+      --border: #e8e8e4;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      padding: 80px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(32,201,151,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-wrap {
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .photo-ring {
+      position: absolute;
+      top: -12px; left: -12px; right: -12px; bottom: -12px;
+      border-radius: 50%;
+      border: 1px dashed rgba(32,201,151,0.4);
+      animation: spin 18s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-text { flex: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+
+    .hero-name em { font-style: italic; color: var(--accent); }
+
+    .hero-role {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.3s forwards;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.4s forwards;
+    }
+
+    .hero-desc strong { color: var(--text); font-weight: 500; }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.5s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #17a880;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(32,201,151,0.3);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 400;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .stats {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 28px 0;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-num span { color: var(--accent); }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { flex-direction: column; gap: 40px; text-align: center; }
+      .hero-desc { max-width: 100%; }
+      .hero-actions { justify-content: center; flex-wrap: wrap; }
+      .stats-inner { flex-wrap: wrap; }
+      .stat { flex: 1 1 50%; border-right: none; border-bottom: 1px solid var(--border); }
+    }
+  </style>
 </head>
 
 <body class="index-page">
 
+  <!-- ORIGINAL HEADER -->
   <header id="header" class="header d-flex align-items-center light-background sticky-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Akriti</h1>
       </a>
 
@@ -52,63 +277,86 @@
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="resume.html">Resume</a></li>
-
-          </li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <div class="header-social-links">  
+      <div class="header-social-links">
         <a href="https://www.linkedin.com/in/aakaritee" class="linkedin"><i class="bi bi-linkedin"></i></a>
       </div>
 
     </div>
   </header>
 
-  <main class="main">
+  <main>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <section class="hero">
+      <div class="hero-inner">
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+        <div class="photo-wrap">
+          <div class="photo-ring"></div>
+          <img src="assets/img/hero-bg.jpg" alt="Akriti Karki"
+            style="width:250px;height:250px;border-radius:50%;object-fit:cover;border:3px solid #20c997;position:relative;z-index:1;">
+        </div>
 
-      <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h2>Hello & Welcome to my Page!</h2>
-              <p>I am a Database Administrator with experience in managing, maintaining, and optimizing databases, now seeking to transition into data-focused roles where I can apply my skills in SQL, data management, and analytics to extract insights and support data-driven decision-making. </p>
-            <a href="about.html" class="btn-get-started">About Me</a>
+        <div class="hero-text">
+          <div class="hero-eyebrow">Open to New Opportunities</div>
+          <h1 class="hero-name">Akriti <em>Karki</em></h1>
+          <p class="hero-role"><strong>Hello and welcome to my Page!</strong></p>
+          <p >
+            I am a Database Administrator with experience in managing, maintaining, and optimizing databases, now seeking to transition into data-focused roles where I can apply my skills in SQL, data management, Machine Learning and analytics to extract insights and support data-driven decision-making.
+          </p>
+          <br>
+          <div class="hero-actions">
+            <a href="about.html" class="btn-primary">
+              About Me
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="resume.html" class="btn-ghost">View Resume</a>
           </div>
         </div>
-      </div>
 
-    </section><!-- /Hero Section -->
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stats-inner">
+        <div class="stat">
+          <div class="stat-num">SQL<span>+</span></div>
+          <div class="stat-label">Data Driven</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num"><span>#</span>1</div>
+          <div class="stat-label">Team Player</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">DB<span>A</span></div>
+          <div class="stat-label">Core Background</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">∞<span></span></div>
+          <div class="stat-label">Growth Mindset</div>
+        </div>
+      </div>
+    </div>
 
   </main>
 
+  <!-- ORIGINAL FOOTER -->
   <footer id="footer" class="footer light-background">
-
     <div class="container">
-      <div class="copyright text-center ">
+      <div class="copyright text-center">
         <p>© 2026<span>Copyright</span> <strong class="px-1 sitename"> Akriti Karki</strong> <span>All Rights Reserved<br></span></p>
       </div>
       <div class="social-links d-flex justify-content-center">
-       
         <a href="https://www.linkedin.com/in/aakaritee"><i class="bi bi-linkedin"></i></a>
-        
       </div>
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
-  <a href="https://www.linkedin.com/in/aakaritee" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -123,10 +371,7 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
